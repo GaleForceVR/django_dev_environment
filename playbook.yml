@@ -1,9 +1,13 @@
 ---
 
+# virtual_env_name: eventup
+
 # Gale VanRossem playbook for EVENTup dev environment
 - hosts: localhost
   connection: local
-  become: True
   tasks:
-    - name: touching a file
-      file: path=foo state=touch
+    - homebrew: name=python state=present
+    - homebrew: name=python3 state=present
+    - pip: name=virtualenvwrapper
+    - command: mkvirtualenv eventup
+
