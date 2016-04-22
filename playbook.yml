@@ -1,0 +1,9 @@
+---
+
+# Gale VanRossem playbook for EVENTup dev environment
+- hosts: localhost
+  connection: local
+  become: True
+  tasks:
+    - name: touching a file
+      file: path=foo state=touch
